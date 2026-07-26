@@ -2,11 +2,11 @@
     "task_id":  "TW-R12-023-WEB-PORT-AND-GITHUB-PAGES",
     "verdict":  "PASS",
     "validation_scope":  "single-threaded Godot Web export for static hosting; online player-path review is a separate gate",
-    "built_at":  "2026-07-26T15:37:01.1680335Z",
+    "built_at":  "2026-07-26T18:11:05.8179218Z",
     "build_version":  "0.16.0",
     "schema_version":  12,
     "project_root":  "D:\\workspace\\codexgame\\tianxia_wuzhu",
-    "source_fingerprint":  "DD6600889C729C1D74C466DBBC27C9772332453139E0F019524A661711700F02",
+    "source_fingerprint":  "D7C77370A487A66AB0C4507FC17F40DBC1FDFAD9E70268F2A87367B618C0C68F",
     "source_file_count":  235,
     "engine":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\engine\\Godot_v4.7.1-stable_win64_console.exe",
     "engine_sha256":  "35DAB11E04ECE16A2B93035E65204F4A944A3E00B020D43E54409193379D5EEF",
@@ -39,7 +39,7 @@
                   {
                       "name":  "index.html",
                       "size":  5589,
-                      "sha256":  "2A3DEC7B325A4C70C7D65B767AB08DB0D392020AA69A44A0500BD0F0C86CF84C"
+                      "sha256":  "BF2BCBCE832E5CB4B9A3DEAD861EBBFB6F3A038E5699B6B23E57408CB085DBA9"
                   },
                   {
                       "name":  "index.icon.png",
@@ -53,8 +53,8 @@
                   },
                   {
                       "name":  "index.pck",
-                      "size":  52502936,
-                      "sha256":  "2A7233448B4AE2EE4698E6C87F2C6BD528839A4CC6DF52C53BCAB3C1D05C8C42"
+                      "size":  52502712,
+                      "sha256":  "073DCFDBE0F64D97D3CF3F9FD7475F23F3016960EF9D0C4E2158514F27FBC632"
                   },
                   {
                       "name":  "index.png",
