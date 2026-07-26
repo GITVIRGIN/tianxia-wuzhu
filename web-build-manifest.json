@@ -1,0 +1,70 @@
+﻿{
+    "task_id":  "TW-R12-023-WEB-PORT-AND-GITHUB-PAGES",
+    "verdict":  "PASS",
+    "validation_scope":  "single-threaded Godot Web export for static hosting; online player-path review is a separate gate",
+    "built_at":  "2026-07-26T15:37:01.1680335Z",
+    "build_version":  "0.16.0",
+    "schema_version":  12,
+    "project_root":  "D:\\workspace\\codexgame\\tianxia_wuzhu",
+    "source_fingerprint":  "DD6600889C729C1D74C466DBBC27C9772332453139E0F019524A661711700F02",
+    "source_file_count":  235,
+    "engine":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\engine\\Godot_v4.7.1-stable_win64_console.exe",
+    "engine_sha256":  "35DAB11E04ECE16A2B93035E65204F4A944A3E00B020D43E54409193379D5EEF",
+    "template":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\template-extract\\templates\\web_nothreads_release.zip",
+    "template_sha256":  "B7B7D7DA29FC6CC2F4934FDD26CC571A40E7AF57F716EA3EB7E18DA720DAE28A",
+    "thread_support":  false,
+    "extensions_support":  false,
+    "entry":  "D:\\workspace\\codexgame\\tianxia_wuzhu\\dist\\web\\index.html",
+    "files":  [
+                  {
+                      "name":  ".nojekyll",
+                      "size":  0,
+                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                  },
+                  {
+                      "name":  "index.apple-touch-icon.png",
+                      "size":  64251,
+                      "sha256":  "9D91139906FFD6B7FB318488AE83B4A66825ECE590D56E11567CEF7B6098D989"
+                  },
+                  {
+                      "name":  "index.audio.position.worklet.js",
+                      "size":  2973,
+                      "sha256":  "BE33985BC7160D6BF9646F259CD86B259CD67B02CCB297EE5C44F8AC84327BC8"
+                  },
+                  {
+                      "name":  "index.audio.worklet.js",
+                      "size":  7298,
+                      "sha256":  "5B476A9C9CE642C0EE4256436D1BC31D9C38F868ACA0F9A8E2A57C18D2DEC2A3"
+                  },
+                  {
+                      "name":  "index.html",
+                      "size":  5589,
+                      "sha256":  "2A3DEC7B325A4C70C7D65B767AB08DB0D392020AA69A44A0500BD0F0C86CF84C"
+                  },
+                  {
+                      "name":  "index.icon.png",
+                      "size":  267635,
+                      "sha256":  "C7101692E6684C1D7564D6EDC5FE9926E223A0362A801A314017867C5FABAFBE"
+                  },
+                  {
+                      "name":  "index.js",
+                      "size":  279815,
+                      "sha256":  "68586D6DAAFC93C6E697B3FB258976874AA7459B8931165EBB1DC3C9614CC42C"
+                  },
+                  {
+                      "name":  "index.pck",
+                      "size":  52502936,
+                      "sha256":  "2A7233448B4AE2EE4698E6C87F2C6BD528839A4CC6DF52C53BCAB3C1D05C8C42"
+                  },
+                  {
+                      "name":  "index.png",
+                      "size":  21443,
+                      "sha256":  "3CB4495C0B98DFBE4B663CBF2B6836473572339BEB66D902367893162A70BE0E"
+                  },
+                  {
+                      "name":  "index.wasm",
+                      "size":  39513091,
+                      "sha256":  "35116F68540AC41ACF7D71EA457ADDED91B5E960A9CCA3E2ACC72918EAF01277"
+                  }
+              ]
+}
