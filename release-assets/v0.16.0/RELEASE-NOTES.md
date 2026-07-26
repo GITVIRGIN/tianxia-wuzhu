@@ -1,4 +1,4 @@
-﻿# 天下无主 0.16.0 — R17 42FF 公共试玩候选
+# 天下无主 0.16.0 — R17 42FF 公共试玩候选
 
 三端同源：Windows x64 原生版、Android arm64 横屏版、GitHub Pages 网页版。
 

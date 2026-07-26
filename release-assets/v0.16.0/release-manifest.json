@@ -1,7 +1,7 @@
-﻿{
+{
     "product":  "天下无主",
     "version":  "0.16.0",
-    "tag":  "v0.16.0-r17-42ff",
+    "tag":  "v0.16.0-r17-42ff-fix1",
     "release_scope":  "public playable development candidate; not commercial completion",
     "prepared_at_utc":  "2026-07-26T23:44:05.3850910Z",
     "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
@@ -13,7 +13,7 @@
               },
     "repository":  "https://github.com/GITVIRGIN/tianxia-wuzhu",
     "pages":  "https://gitvirgin.github.io/tianxia-wuzhu/",
-    "release":  "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.16.0-r17-42ff",
+    "release":  "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.16.0-r17-42ff-fix1",
     "windows":  {
                     "exe_sha256":  "9CD325A1B13A953C763EF49FDC51DB4D00BCB87BA99C1C238DEA7BFF19720063",
                     "pck_sha256":  "295A8FCB6A7F8EC1BB5CAEFB3D20A33F3C5B60E09074AD81BFD8BAF6EB24B576",
