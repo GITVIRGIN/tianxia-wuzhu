@@ -1,0 +1,123 @@
+﻿{
+    "product":  "天下无主",
+    "version":  "0.16.0",
+    "tag":  "v0.16.0-r17-42ff",
+    "release_scope":  "public playable development candidate; not commercial completion",
+    "prepared_at_utc":  "2026-07-26T23:44:05.3850910Z",
+    "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
+    "source_file_count":  235,
+    "tests":  {
+                  "verdict":  "PASS",
+                  "count":  118,
+                  "report_sha256":  "1380E25CFC4AF5171A0DE655BFAE4E0FF839E34401DF5F65DB1567755226C7D9"
+              },
+    "repository":  "https://github.com/GITVIRGIN/tianxia-wuzhu",
+    "pages":  "https://gitvirgin.github.io/tianxia-wuzhu/",
+    "release":  "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.16.0-r17-42ff",
+    "windows":  {
+                    "exe_sha256":  "9CD325A1B13A953C763EF49FDC51DB4D00BCB87BA99C1C238DEA7BFF19720063",
+                    "pck_sha256":  "295A8FCB6A7F8EC1BB5CAEFB3D20A33F3C5B60E09074AD81BFD8BAF6EB24B576",
+                    "self_test":  "FINAL-LOCK-20260727-WINDOWS-SELFTEST-01"
+                },
+    "web":  {
+                "verdict":  "PASS",
+                "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
+                "thread_support":  false,
+                "build_manifest_sha256":  "C3BDF080168615C176E16D10ACC8A52FD7226A6E54D23DA40DCC6B964DA18DB1",
+                "player_path_evidence":  "FINAL-LOCK-20260727-WEB-IAB-01",
+                "files":  [
+                              {
+                                  "name":  ".nojekyll",
+                                  "size":  0,
+                                  "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+                              },
+                              {
+                                  "name":  "index.apple-touch-icon.png",
+                                  "size":  64251,
+                                  "sha256":  "9D91139906FFD6B7FB318488AE83B4A66825ECE590D56E11567CEF7B6098D989"
+                              },
+                              {
+                                  "name":  "index.audio.position.worklet.js",
+                                  "size":  2973,
+                                  "sha256":  "BE33985BC7160D6BF9646F259CD86B259CD67B02CCB297EE5C44F8AC84327BC8"
+                              },
+                              {
+                                  "name":  "index.audio.worklet.js",
+                                  "size":  7298,
+                                  "sha256":  "5B476A9C9CE642C0EE4256436D1BC31D9C38F868ACA0F9A8E2A57C18D2DEC2A3"
+                              },
+                              {
+                                  "name":  "index.html",
+                                  "size":  5589,
+                                  "sha256":  "BF2BCBCE832E5CB4B9A3DEAD861EBBFB6F3A038E5699B6B23E57408CB085DBA9"
+                              },
+                              {
+                                  "name":  "index.icon.png",
+                                  "size":  267635,
+                                  "sha256":  "C7101692E6684C1D7564D6EDC5FE9926E223A0362A801A314017867C5FABAFBE"
+                              },
+                              {
+                                  "name":  "index.js",
+                                  "size":  279815,
+                                  "sha256":  "68586D6DAAFC93C6E697B3FB258976874AA7459B8931165EBB1DC3C9614CC42C"
+                              },
+                              {
+                                  "name":  "index.pck",
+                                  "size":  52502712,
+                                  "sha256":  "4ED9B2019925E9627175423960ECC073E2FBFDDE1F0C70381054CA17608BC7C2"
+                              },
+                              {
+                                  "name":  "index.png",
+                                  "size":  21443,
+                                  "sha256":  "3CB4495C0B98DFBE4B663CBF2B6836473572339BEB66D902367893162A70BE0E"
+                              },
+                              {
+                                  "name":  "index.wasm",
+                                  "size":  39513091,
+                                  "sha256":  "35116F68540AC41ACF7D71EA457ADDED91B5E960A9CCA3E2ACC72918EAF01277"
+                              }
+                          ]
+            },
+    "android":  {
+                    "verdict":  "PASS",
+                    "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
+                    "package":  "org.codexgame.tianxiawuzhu",
+                    "version_code":  "14",
+                    "version_name":  "0.16.0",
+                    "orientation":  "landscape",
+                    "apk_sha256":  "5CE5AC8AAF3563358F4D548E7AF9E193BE0A2EE4642BF706C1680D8BAA98FD5D",
+                    "build_manifest_sha256":  "CF65DB83E262A6FD58420E8F1AAEFAEFEF80E33A19D75CEB0402A6D41A84B775",
+                    "physical_device_validation":  "not run; Windows real-touch vivo X300 Pro reference geometry PASS"
+                },
+    "evidence":  {
+                     "native_main":  "FINAL-LOCK-20260727-NATIVE-FULL-08",
+                     "native_repeatable_city_work":  "FINAL-LOCK-20260727-NATIVE-WORKUX-02",
+                     "native_politics":  "FINAL-LOCK-20260727-NATIVE-R13-SCROLLFIX-03",
+                     "native_resource":  "FINAL-LOCK-20260727-NATIVE-RESOURCE-03",
+                     "mobile_touch_reference":  "RUN-20260726T231119Z",
+                     "web_real_browser":  "FINAL-LOCK-20260727-WEB-IAB-01",
+                     "exe_self_test":  "FINAL-LOCK-20260727-WINDOWS-SELFTEST-01"
+                 },
+    "release_assets":  [
+                           {
+                               "name":  "TianxiaWuzhu-Windows-x64-v0.16.0.zip",
+                               "size":  89824399,
+                               "sha256":  "A0EA9BA5E602E7B625AC7067B4633394E6A852C4C511C4D4F26587CE5FDD5CCA"
+                           },
+                           {
+                               "name":  "TianxiaWuzhu-Android-arm64-v0.16.0.apk",
+                               "size":  79166367,
+                               "sha256":  "5CE5AC8AAF3563358F4D548E7AF9E193BE0A2EE4642BF706C1680D8BAA98FD5D"
+                           },
+                           {
+                               "name":  "TianxiaWuzhu.exe",
+                               "size":  109241344,
+                               "sha256":  "9CD325A1B13A953C763EF49FDC51DB4D00BCB87BA99C1C238DEA7BFF19720063"
+                           },
+                           {
+                               "name":  "TianxiaWuzhu.pck",
+                               "size":  52502712,
+                               "sha256":  "295A8FCB6A7F8EC1BB5CAEFB3D20A33F3C5B60E09074AD81BFD8BAF6EB24B576"
+                           }
+                       ]
+}

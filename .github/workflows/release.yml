@@ -1,0 +1,42 @@
+name: Publish Tianxia Wuzhu Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release payload
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Verify release checksums
+        working-directory: release-assets/v0.16.0
+        shell: bash
+        run: sha256sum --check CHECKSUMS.sha256
+
+      - name: Create prerelease and upload native builds
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ASSET_DIR: release-assets/v0.16.0
+        shell: bash
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "天下无主 v0.16.0 · R17 公共试玩候选" \
+            --notes-file "$ASSET_DIR/RELEASE-NOTES.md" \
+            --prerelease \
+            "$ASSET_DIR/TianxiaWuzhu-Windows-x64-v0.16.0.zip" \
+            "$ASSET_DIR/TianxiaWuzhu-Android-arm64-v0.16.0.apk" \
+            "$ASSET_DIR/TianxiaWuzhu.exe" \
+            "$ASSET_DIR/TianxiaWuzhu.pck" \
+            "$ASSET_DIR/release-manifest.json" \
+            "$ASSET_DIR/CHECKSUMS.sha256"

@@ -1,0 +1,52 @@
+name: Deploy Tianxia Wuzhu Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.*"
+      - ".nojekyll"
+      - "web-build-manifest.json"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: tianxia-wuzhu-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout final web build
+        uses: actions/checkout@v6
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Prepare isolated site artifact
+        shell: bash
+        run: |
+          mkdir -p _site
+          cp .nojekyll web-build-manifest.json _site/
+          cp index.* _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
