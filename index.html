@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 		<title>天下无主</title>
 		<style>
+:root {
+	color-scheme: dark;
+	--ink: #0b0d0e;
+	--panel: rgba(20, 19, 16, 0.96);
+	--paper: #d9ccb0;
+	--paper-muted: #a99b7e;
+	--gold: #c59a4b;
+	--gold-bright: #e2bd6b;
+	--red: #6f2823;
+	--line: rgba(197, 154, 75, 0.55);
+}
+
+* {
+	box-sizing: border-box;
+}
+
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	width: 100%;
+	height: 100%;
 }
 
 body {
-	color: white;
-	background-color: black;
+	color: var(--paper);
+	background:
+		radial-gradient(circle at 50% 15%, rgba(103, 78, 40, 0.18), transparent 43%),
+		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 5px),
+		var(--ink);
 	overflow: hidden;
 	touch-action: none;
+	font-family: "Noto Serif CJK SC", "Source Han Serif SC", "Microsoft YaHei UI", sans-serif;
 }
 
 #canvas {
@@ -26,68 +48,262 @@ body {
 	outline: none;
 }
 
-#status, #status-splash, #status-progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
-
-#status, #status-splash {
-	top: 0;
-	bottom: 0;
-}
-
 #status {
-	background-color: #090b0d;
+	position: fixed;
+	inset: 0;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	visibility: hidden;
+	justify-content: center;
+	padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+		max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+	background:
+		linear-gradient(rgba(5, 7, 8, 0.88), rgba(5, 7, 8, 0.96)),
+		url("index.png") center / cover no-repeat;
+	z-index: 10;
 }
 
-#status-splash {
+#status-shell {
+	position: relative;
+	width: min(920px, 100%);
 	max-height: 100%;
-	max-width: 100%;
-	margin: auto;
+	overflow: auto;
+	padding: clamp(24px, 5vw, 54px);
+	border: 1px solid var(--line);
+	background: var(--panel);
+	box-shadow:
+		0 24px 80px rgba(0, 0, 0, 0.55),
+		inset 0 0 0 4px rgba(197, 154, 75, 0.08);
 }
 
-#status-splash.show-image--false {
-	display: none;
+#status-shell::before,
+#status-shell::after {
+	content: "";
+	position: absolute;
+	left: 18px;
+	right: 18px;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-#status-splash.fullsize--true {
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
+#status-shell::before {
+	top: 14px;
 }
 
-#status-splash.use-filter--false {
-	image-rendering: pixelated;
+#status-shell::after {
+	bottom: 14px;
 }
 
-#status-progress, #status-notice {
-	display: none;
+.eyebrow {
+	margin: 0 0 8px;
+	color: var(--gold);
+	font-size: 14px;
+	letter-spacing: 0.24em;
+}
+
+h1 {
+	margin: 0;
+	color: var(--gold-bright);
+	font-size: clamp(34px, 6vw, 58px);
+	font-weight: 500;
+	letter-spacing: 0.09em;
+}
+
+.lead {
+	margin: 18px 0 0;
+	color: var(--paper);
+	font-size: clamp(17px, 2.4vw, 22px);
+	line-height: 1.65;
+}
+
+.muted {
+	color: var(--paper-muted);
+}
+
+#loading-panel,
+#compat-panel {
+	margin-top: 30px;
 }
 
 #status-progress {
-	bottom: 10%;
-	width: 50%;
-	margin: 0 auto;
+	display: block;
+	width: 100%;
+	height: 10px;
+	margin: 24px 0 12px;
+	border: 0;
+	border-radius: 0;
+	background: #080908;
+	accent-color: var(--gold);
 }
 
-#status-notice {
-	background-color: #5b3943;
-	border-radius: 0.5rem;
-	border: 1px solid #9b3943;
-	color: #e0e0e0;
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	line-height: 1.3;
-	margin: 0 2rem;
-	overflow: hidden;
-	padding: 1rem;
+#status-progress::-webkit-progress-bar {
+	background: #080908;
+}
+
+#status-progress::-webkit-progress-value {
+	background: linear-gradient(90deg, #7e5b29, var(--gold-bright));
+}
+
+#status-progress::-moz-progress-bar {
+	background: linear-gradient(90deg, #7e5b29, var(--gold-bright));
+}
+
+#compat-panel[hidden],
+#loading-panel[hidden] {
+	display: none;
+}
+
+.compat-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin: 24px 0;
+}
+
+.compat-item {
+	min-height: 76px;
+	padding: 13px 15px;
+	border: 1px solid rgba(197, 154, 75, 0.28);
+	background: rgba(255, 255, 255, 0.025);
+}
+
+.compat-item strong,
+.compat-item span {
+	display: block;
+}
+
+.compat-item strong {
+	color: var(--paper);
+	font-size: 16px;
+}
+
+.compat-item span {
+	margin-top: 7px;
+	color: var(--paper-muted);
+	font-size: 13px;
+}
+
+.compat-item[data-state="ok"] span {
+	color: #9eae77;
+}
+
+.compat-item[data-state="bad"] {
+	border-color: rgba(167, 65, 54, 0.72);
+	background: rgba(111, 40, 35, 0.18);
+}
+
+.compat-item[data-state="bad"] span {
+	color: #e7a196;
+}
+
+#missing-list {
+	margin: 16px 0 0;
+	padding: 13px 16px;
+	border-left: 3px solid #a74336;
+	background: rgba(111, 40, 35, 0.16);
+	color: #e7b1a8;
+	font-family: "Microsoft YaHei UI", sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	white-space: pre-wrap;
+}
+
+.actions {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin-top: 26px;
+}
+
+.action {
+	display: flex;
+	min-height: 58px;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 18px;
+	border: 1px solid var(--line);
+	background:
+		linear-gradient(180deg, rgba(197, 154, 75, 0.12), rgba(197, 154, 75, 0.03)),
+		#191915;
+	color: var(--paper);
+	cursor: pointer;
+	font: inherit;
+	font-size: 16px;
 	text-align: center;
-	z-index: 1;
+	text-decoration: none;
+	transition: border-color 120ms ease, background 120ms ease, color 120ms ease;
+}
+
+.action:hover,
+.action:focus-visible {
+	border-color: var(--gold-bright);
+	background:
+		linear-gradient(180deg, rgba(226, 189, 107, 0.22), rgba(197, 154, 75, 0.07)),
+		#1d1c17;
+	color: #fff2cf;
+	outline: none;
+}
+
+.action.primary {
+	border-color: var(--gold);
+	background:
+		linear-gradient(180deg, rgba(197, 154, 75, 0.25), rgba(104, 72, 30, 0.1)),
+		#211e17;
+}
+
+.help {
+	margin: 22px 0 0;
+	color: var(--paper-muted);
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+.help strong {
+	color: var(--paper);
+}
+
+.test-badge {
+	display: none;
+	margin-bottom: 14px;
+	padding: 6px 9px;
+	width: fit-content;
+	border: 1px solid rgba(226, 189, 107, 0.45);
+	color: var(--gold-bright);
+	font: 12px/1.3 "Microsoft YaHei UI", sans-serif;
+}
+
+body[data-compat-test="true"] .test-badge {
+	display: block;
+}
+
+noscript {
+	position: fixed;
+	inset: 20px;
+	z-index: 20;
+	padding: 24px;
+	border: 1px solid #a74336;
+	background: #16110f;
+	color: #f1ddd1;
+}
+
+@media (max-width: 680px) {
+	#status {
+		align-items: stretch;
+		padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right))
+			max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+	}
+
+	#status-shell {
+		padding: 30px 20px;
+	}
+
+	.compat-grid,
+	.actions {
+		grid-template-columns: 1fr;
+	}
+
+	.action {
+		min-height: 54px;
+	}
 }
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
@@ -95,19 +311,60 @@ body {
 <meta name="description" content="《天下无主》架空明末高自由度战略沙盒可玩切片"><meta name="theme-color" content="#10171d">
 	</head>
 	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
+		<canvas id="canvas" aria-label="天下无主游戏画面">
+			当前浏览器不支持 Canvas，无法启动网页版。
 		</canvas>
 
-		<noscript>
-			Your browser does not support JavaScript.
-		</noscript>
+		<noscript>《天下无主》网页版需要启用 JavaScript。你也可以前往 GitHub Release 下载 Windows 完整版或 Android 版。</noscript>
 
-		<div id="status">
-			<img id="status-splash" class="show-image--false fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
+		<section id="status" data-testid="web-startup-overlay" aria-live="polite">
+			<div id="status-shell">
+				<p class="eyebrow">崇祯十六年 · 天下风云</p>
+				<h1>天下无主</h1>
+
+				<div id="loading-panel" data-testid="web-loading-panel">
+					<p class="lead">正在检查浏览器并装载大地图。</p>
+					<progress id="status-progress"></progress>
+					<p class="muted">首次进入需要下载约 90MB 游戏数据，请保持页面开启。</p>
+				</div>
+
+				<div id="compat-panel" data-testid="web-compatibility-panel" hidden>
+					<div class="test-badge" data-testid="compat-test-badge">兼容性审查模拟模式</div>
+					<p class="lead"><strong id="compat-title">当前浏览器无法启动网页版</strong></p>
+					<p id="compat-summary" class="muted">
+						网页版由 Godot 4 驱动，必须支持 WebGL2。游戏本体没有丢失，你可以换用系统浏览器重试，或直接下载客户端继续游玩。
+					</p>
+
+					<div class="compat-grid" aria-label="浏览器兼容性检查结果">
+						<div id="check-webgl2" class="compat-item" data-testid="check-webgl2">
+							<strong>WebGL2 图形</strong>
+							<span>正在检测</span>
+						</div>
+						<div id="check-wasm" class="compat-item" data-testid="check-wasm">
+							<strong>WebAssembly</strong>
+							<span>正在检测</span>
+						</div>
+						<div id="check-secure" class="compat-item" data-testid="check-secure">
+							<strong>安全连接</strong>
+							<span>正在检测</span>
+						</div>
+					</div>
+
+					<div id="missing-list" data-testid="missing-feature-list"></div>
+
+					<div class="actions">
+						<button id="retry-button" class="action primary" type="button" data-testid="retry-browser-check">重新检测</button>
+						<a id="external-browser-link" class="action" href="./" target="_blank" rel="noopener" data-testid="open-system-browser">在新标签打开</a>
+						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/latest/download/TianxiaWuzhu-Windows-x64-v0.16.0.zip" data-testid="download-windows-zip">下载 Windows 完整版（ZIP）</a>
+						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/latest/download/TianxiaWuzhu-Android-arm64-v0.16.0.apk" data-testid="download-android-apk">下载 Android 版（APK）</a>
+					</div>
+
+					<p class="help">
+						<strong>仍想使用网页：</strong>请在 Chrome、Edge 或 Firefox 中打开，并确认浏览器“使用硬件加速”已开启、显卡驱动正常。微信/应用内置浏览器常会禁用 WebGL2。Windows 下载后必须完整解压 ZIP，再运行其中的 EXE。
+					</p>
+				</div>
+			</div>
+		</section>
 
 		<script src="index.js"></script>
 		<script>
@@ -116,103 +373,110 @@ const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
-	const statusOverlay = document.getElementById('status');
-	const statusProgress = document.getElementById('status-progress');
-	const statusNotice = document.getElementById('status-notice');
+	const statusOverlay = document.getElementById("status");
+	const loadingPanel = document.getElementById("loading-panel");
+	const statusProgress = document.getElementById("status-progress");
+	const compatPanel = document.getElementById("compat-panel");
+	const retryButton = document.getElementById("retry-button");
+	const externalBrowserLink = document.getElementById("external-browser-link");
+	const compatTestMode = new URLSearchParams(window.location.search).get("compat_test") === "webgl2-missing";
 
-	let initializing = true;
-	let statusMode = '';
-
-	function setStatusMode(mode) {
-		if (statusMode === mode || !initializing) {
-			return;
-		}
-		if (mode === 'hidden') {
-			statusOverlay.remove();
-			initializing = false;
-			return;
-		}
-		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
-		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
-		statusMode = mode;
+	function cleanCompatibilityTestUrl() {
+		const url = new URL(window.location.href);
+		url.searchParams.delete("compat_test");
+		return url.toString();
 	}
 
-	function setStatusNotice(text) {
-		while (statusNotice.lastChild) {
-			statusNotice.removeChild(statusNotice.lastChild);
+	function detectWebGL2() {
+		if (compatTestMode) {
+			return false;
 		}
-		const lines = text.split('\n');
-		lines.forEach((line) => {
-			statusNotice.appendChild(document.createTextNode(line));
-			statusNotice.appendChild(document.createElement('br'));
-		});
+		try {
+			const probe = document.createElement("canvas");
+			return Boolean(window.WebGL2RenderingContext && probe.getContext("webgl2", {
+				failIfMajorPerformanceCaveat: false,
+			}));
+		} catch (err) {
+			console.warn("WebGL2 probe failed:", err);
+			return false;
+		}
 	}
 
-	function displayFailureNotice(err) {
-		console.error(err);
-		if (err instanceof Error) {
-			setStatusNotice(err.message);
-		} else if (typeof err === 'string') {
-			setStatusNotice(err);
-		} else {
-			setStatusNotice('An unknown error occurred.');
-		}
-		setStatusMode('notice');
-		initializing = false;
+	function setCheck(id, ok, okText, badText) {
+		const item = document.getElementById(id);
+		item.dataset.state = ok ? "ok" : "bad";
+		item.querySelector("span").textContent = ok ? okText : badText;
 	}
 
-	const missing = Engine.getMissingFeatures({
-		threads: GODOT_THREADS_ENABLED,
-	});
+	function friendlyMissingFeatures(missing, runtimeError) {
+		const lines = [];
+		if (missing.some((item) => String(item).toLowerCase().includes("webgl"))) {
+			lines.push("缺少 WebGL2：当前浏览器、内置网页容器或显卡加速不可用。");
+		}
+		if (missing.some((item) => String(item).toLowerCase().includes("webassembly"))) {
+			lines.push("缺少 WebAssembly：当前浏览器版本过旧或被安全策略禁用。");
+		}
+		if (missing.length && lines.length === 0) {
+			lines.push("缺少运行能力：" + missing.join("；"));
+		}
+		if (runtimeError) {
+			const text = runtimeError instanceof Error ? runtimeError.message : String(runtimeError);
+			lines.push("启动阶段报告：" + text);
+		}
+		if (compatTestMode) {
+			lines.push("当前页面通过 compat_test 参数模拟无 WebGL2 环境，用于公开回归审查。");
+		}
+		return lines.join("\n");
+	}
+
+	function showCompatibilityFallback(missing, runtimeError) {
+		document.body.dataset.compatTest = compatTestMode ? "true" : "false";
+		loadingPanel.hidden = true;
+		compatPanel.hidden = false;
+		statusOverlay.style.display = "flex";
+
+		const webgl2 = detectWebGL2();
+		const wasm = typeof WebAssembly === "object";
+		const secure = window.isSecureContext || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+		setCheck("check-webgl2", webgl2, "可用", "不可用");
+		setCheck("check-wasm", wasm, "可用", "不可用");
+		setCheck("check-secure", secure, "可用", "需要 HTTPS 或 localhost");
+
+		document.getElementById("missing-list").textContent = friendlyMissingFeatures(missing, runtimeError);
+		externalBrowserLink.href = cleanCompatibilityTestUrl();
+		retryButton.onclick = function () {
+			window.location.assign(cleanCompatibilityTestUrl());
+		};
+	}
+
+	const missing = compatTestMode
+		? ["WebGL2 - compatibility review simulation"]
+		: Engine.getMissingFeatures({ threads: GODOT_THREADS_ENABLED });
 
 	if (missing.length !== 0) {
-		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
-			let serviceWorkerRegistrationPromise;
-			try {
-				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
-			} catch (err) {
-				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
-			}
-			// There's a chance that installing the service worker would fix the issue
-			Promise.race([
-				serviceWorkerRegistrationPromise.then((registration) => {
-					if (registration != null) {
-						return Promise.reject(new Error('Service worker already exists.'));
-					}
-					return registration;
-				}).then(() => engine.installServiceWorker()),
-				// For some reason, `getRegistration()` can stall
-				new Promise((resolve) => {
-					setTimeout(() => resolve(), 2000);
-				}),
-			]).then(() => {
-				// Reload if there was no error.
-				window.location.reload();
-			}).catch((err) => {
-				console.error('Error while registering service worker:', err);
-			});
-		} else {
-			// Display the message as usual
-			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-			displayFailureNotice(missingMsg + missing.join('\n'));
-		}
-	} else {
-		setStatusMode('progress');
-		engine.startGame({
-			'onProgress': function (current, total) {
-				if (current > 0 && total > 0) {
-					statusProgress.value = current;
-					statusProgress.max = total;
-				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
-				}
-			},
-		}).then(() => {
-			setStatusMode('hidden');
-		}, displayFailureNotice);
+		showCompatibilityFallback(missing, null);
+		return;
 	}
+
+	statusOverlay.style.display = "flex";
+	statusProgress.removeAttribute("value");
+	statusProgress.removeAttribute("max");
+	engine.startGame({
+		onProgress: function (current, total) {
+			if (current > 0 && total > 0) {
+				statusProgress.value = current;
+				statusProgress.max = total;
+			} else {
+				statusProgress.removeAttribute("value");
+				statusProgress.removeAttribute("max");
+			}
+		},
+	}).then(function () {
+		statusOverlay.remove();
+	}, function (err) {
+		console.error(err);
+		showCompatibilityFallback([], err);
+	});
 }());
 		</script>
 	</body>

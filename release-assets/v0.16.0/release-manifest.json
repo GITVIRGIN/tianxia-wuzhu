@@ -1,31 +1,49 @@
 {
+    "task_id":  "TW-R17-032-WEBGL2-COMPATIBILITY-AND-THREE-CHANNEL-AUDIT",
     "product":  "天下无主",
     "version":  "0.16.0",
-    "tag":  "v0.16.0-r17-42ff-fix1",
+    "tag":  "v0.16.0-r17-webgl2-fix2",
     "release_scope":  "public playable development candidate; not commercial completion",
-    "prepared_at_utc":  "2026-07-26T23:44:05.3850910Z",
-    "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
-    "source_file_count":  235,
+    "prepared_at_utc":  "2026-07-27T05:12:41.1331516Z",
+    "source_fingerprint":  "3E7ECA3C5BC8457953BAE7EE9C807BD3187384548383EF4A2BDF455400D3E783",
+    "source_file_count":  238,
     "tests":  {
                   "verdict":  "PASS",
                   "count":  118,
-                  "report_sha256":  "1380E25CFC4AF5171A0DE655BFAE4E0FF839E34401DF5F65DB1567755226C7D9"
+                  "report_sha256":  "ED1AAA16CEBE21190F7F4A0DE4BC34C47AF75EB0DEA3AEE10747C04D31B1DEAF"
               },
     "repository":  "https://github.com/GITVIRGIN/tianxia-wuzhu",
     "pages":  "https://gitvirgin.github.io/tianxia-wuzhu/",
-    "release":  "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.16.0-r17-42ff-fix1",
+    "compatibility_test":  "https://gitvirgin.github.io/tianxia-wuzhu/?compat_test=webgl2-missing",
+    "release":  "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.16.0-r17-webgl2-fix2",
     "windows":  {
+                    "delivery":  "complete ZIP containing adjacent EXE and PCK",
+                    "naked_exe_supported":  false,
                     "exe_sha256":  "9CD325A1B13A953C763EF49FDC51DB4D00BCB87BA99C1C238DEA7BFF19720063",
-                    "pck_sha256":  "295A8FCB6A7F8EC1BB5CAEFB3D20A33F3C5B60E09074AD81BFD8BAF6EB24B576",
-                    "self_test":  "FINAL-LOCK-20260727-WINDOWS-SELFTEST-01"
+                    "pck_sha256":  "886C9F2A2B835EDC0168929A8DB94868D96D8139C372B621B1CEF03BEE169399",
+                    "zip_sha256":  "55729CA9D5C4C986D2432FAC29ECB02E5FCD43F3775729577D809784B63D7891",
+                    "isolated_zip_self_test":  "TW-R17-032-WINDOWS-ZIP-SELFTEST-01",
+                    "naked_exe_negative_control":  "TW-R17-032-NAKED-EXE-NEGATIVE-01"
                 },
     "web":  {
                 "verdict":  "PASS",
-                "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
+                "source_fingerprint":  "3E7ECA3C5BC8457953BAE7EE9C807BD3187384548383EF4A2BDF455400D3E783",
                 "thread_support":  false,
-                "build_manifest_sha256":  "C3BDF080168615C176E16D10ACC8A52FD7226A6E54D23DA40DCC6B964DA18DB1",
-                "player_path_evidence":  "FINAL-LOCK-20260727-WEB-IAB-01",
+                "webgl2_required":  true,
+                "compatibility_audit":  {
+                                            "verdict":  "PASS",
+                                            "entry_sha256":  "8EF3E0A6AED85BC272CB5AE00C0CF3814D44680FECCD20CC545C7D5CB9900F50",
+                                            "check_count":  17
+                                        },
+                "build_manifest_sha256":  "F4EA1D17B9E022A4A49F3D28D86C98D5615FC5B943D3ECDC05A420B922405F47",
+                "local_positive_player_path":  "TW-R17-032-WEB-LOCAL-POSITIVE-01",
+                "local_forced_negative_player_path":  "TW-R17-032-WEB-LOCAL-NEGATIVE-01",
                 "files":  [
+                              {
+                                  "name":  ".gitattributes",
+                                  "size":  240,
+                                  "sha256":  "3E580C30140F43079718DA22ADA3A79A83CA6E5C4EA31CF6DD6D1AA81B657399"
+                              },
                               {
                                   "name":  ".nojekyll",
                                   "size":  0,
@@ -48,8 +66,8 @@
                               },
                               {
                                   "name":  "index.html",
-                                  "size":  5589,
-                                  "sha256":  "BF2BCBCE832E5CB4B9A3DEAD861EBBFB6F3A038E5699B6B23E57408CB085DBA9"
+                                  "size":  13230,
+                                  "sha256":  "8EF3E0A6AED85BC272CB5AE00C0CF3814D44680FECCD20CC545C7D5CB9900F50"
                               },
                               {
                                   "name":  "index.icon.png",
@@ -64,7 +82,7 @@
                               {
                                   "name":  "index.pck",
                                   "size":  52502712,
-                                  "sha256":  "4ED9B2019925E9627175423960ECC073E2FBFDDE1F0C70381054CA17608BC7C2"
+                                  "sha256":  "F2E648270DEA2778BEE2D1538000C509A318E62C291B0B7F9753276D7A605DCB"
                               },
                               {
                                   "name":  "index.png",
@@ -80,44 +98,25 @@
             },
     "android":  {
                     "verdict":  "PASS",
-                    "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
+                    "source_fingerprint":  "3E7ECA3C5BC8457953BAE7EE9C807BD3187384548383EF4A2BDF455400D3E783",
                     "package":  "org.codexgame.tianxiawuzhu",
                     "version_code":  "14",
                     "version_name":  "0.16.0",
                     "orientation":  "landscape",
-                    "apk_sha256":  "5CE5AC8AAF3563358F4D548E7AF9E193BE0A2EE4642BF706C1680D8BAA98FD5D",
-                    "build_manifest_sha256":  "CF65DB83E262A6FD58420E8F1AAEFAEFEF80E33A19D75CEB0402A6D41A84B775",
-                    "physical_device_validation":  "not run; Windows real-touch vivo X300 Pro reference geometry PASS"
+                    "apk_sha256":  "1521BAAE3C8B8A06A282B1CD23426DE9DA186E0B7529F0CD0795FFE6F2BD1762",
+                    "build_manifest_sha256":  "774AFAA60EADA2ACEA18E4D749B8B24C68A6386AE3E0F913183BC5ABD94A894B",
+                    "physical_device_validation":  "not run; signed arm64 artifact and vivo X300 Pro reference geometry only"
                 },
-    "evidence":  {
-                     "native_main":  "FINAL-LOCK-20260727-NATIVE-FULL-08",
-                     "native_repeatable_city_work":  "FINAL-LOCK-20260727-NATIVE-WORKUX-02",
-                     "native_politics":  "FINAL-LOCK-20260727-NATIVE-R13-SCROLLFIX-03",
-                     "native_resource":  "FINAL-LOCK-20260727-NATIVE-RESOURCE-03",
-                     "mobile_touch_reference":  "RUN-20260726T231119Z",
-                     "web_real_browser":  "FINAL-LOCK-20260727-WEB-IAB-01",
-                     "exe_self_test":  "FINAL-LOCK-20260727-WINDOWS-SELFTEST-01"
-                 },
     "release_assets":  [
                            {
                                "name":  "TianxiaWuzhu-Windows-x64-v0.16.0.zip",
-                               "size":  89824399,
-                               "sha256":  "A0EA9BA5E602E7B625AC7067B4633394E6A852C4C511C4D4F26587CE5FDD5CCA"
+                               "size":  89824507,
+                               "sha256":  "55729CA9D5C4C986D2432FAC29ECB02E5FCD43F3775729577D809784B63D7891"
                            },
                            {
                                "name":  "TianxiaWuzhu-Android-arm64-v0.16.0.apk",
                                "size":  79166367,
-                               "sha256":  "5CE5AC8AAF3563358F4D548E7AF9E193BE0A2EE4642BF706C1680D8BAA98FD5D"
-                           },
-                           {
-                               "name":  "TianxiaWuzhu.exe",
-                               "size":  109241344,
-                               "sha256":  "9CD325A1B13A953C763EF49FDC51DB4D00BCB87BA99C1C238DEA7BFF19720063"
-                           },
-                           {
-                               "name":  "TianxiaWuzhu.pck",
-                               "size":  52502712,
-                               "sha256":  "295A8FCB6A7F8EC1BB5CAEFB3D20A33F3C5B60E09074AD81BFD8BAF6EB24B576"
+                               "sha256":  "1521BAAE3C8B8A06A282B1CD23426DE9DA186E0B7529F0CD0795FFE6F2BD1762"
                            }
                        ]
 }

@@ -1,13 +1,13 @@
 ﻿{
-    "task_id":  "TW-R12-023-WEB-PORT-AND-GITHUB-PAGES",
+    "task_id":  "TW-R17-032-WEBGL2-COMPATIBILITY-AND-THREE-CHANNEL-AUDIT",
     "verdict":  "PASS",
-    "validation_scope":  "single-threaded Godot Web export for static hosting; online player-path review is a separate gate",
-    "built_at":  "2026-07-26T23:04:05.7559825Z",
+    "validation_scope":  "single-threaded Godot Web export with Chinese WebGL2 fallback; real positive and forced-negative browser player paths remain separate gates",
+    "built_at":  "2026-07-27T05:05:25.4981602Z",
     "build_version":  "0.16.0",
     "schema_version":  12,
     "project_root":  "D:\\workspace\\codexgame\\tianxia_wuzhu",
-    "source_fingerprint":  "42FF2849721D5F543CA1892F4DA5B6E01884B32B45F968B86EFB43CDF5B298A6",
-    "source_file_count":  235,
+    "source_fingerprint":  "3E7ECA3C5BC8457953BAE7EE9C807BD3187384548383EF4A2BDF455400D3E783",
+    "source_file_count":  238,
     "engine":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\engine\\Godot_v4.7.1-stable_win64_console.exe",
     "engine_sha256":  "35DAB11E04ECE16A2B93035E65204F4A944A3E00B020D43E54409193379D5EEF",
     "template":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\template-extract\\templates\\web_nothreads_release.zip",
@@ -15,7 +15,17 @@
     "thread_support":  false,
     "extensions_support":  false,
     "entry":  "D:\\workspace\\codexgame\\tianxia_wuzhu\\dist\\web\\index.html",
+    "compatibility_audit":  {
+                                "verdict":  "PASS",
+                                "entry_sha256":  "8EF3E0A6AED85BC272CB5AE00C0CF3814D44680FECCD20CC545C7D5CB9900F50",
+                                "check_count":  17
+                            },
     "files":  [
+                  {
+                      "name":  ".gitattributes",
+                      "size":  240,
+                      "sha256":  "3E580C30140F43079718DA22ADA3A79A83CA6E5C4EA31CF6DD6D1AA81B657399"
+                  },
                   {
                       "name":  ".nojekyll",
                       "size":  0,
@@ -38,8 +48,8 @@
                   },
                   {
                       "name":  "index.html",
-                      "size":  5589,
-                      "sha256":  "BF2BCBCE832E5CB4B9A3DEAD861EBBFB6F3A038E5699B6B23E57408CB085DBA9"
+                      "size":  13230,
+                      "sha256":  "8EF3E0A6AED85BC272CB5AE00C0CF3814D44680FECCD20CC545C7D5CB9900F50"
                   },
                   {
                       "name":  "index.icon.png",
@@ -54,7 +64,7 @@
                   {
                       "name":  "index.pck",
                       "size":  52502712,
-                      "sha256":  "4ED9B2019925E9627175423960ECC073E2FBFDDE1F0C70381054CA17608BC7C2"
+                      "sha256":  "F2E648270DEA2778BEE2D1538000C509A318E62C291B0B7F9753276D7A605DCB"
                   },
                   {
                       "name":  "index.png",
