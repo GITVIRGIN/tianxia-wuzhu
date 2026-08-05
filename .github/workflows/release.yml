@@ -19,22 +19,22 @@ jobs:
           lfs: true
 
       - name: Verify release checksums
-        working-directory: release-assets/v0.16.0
+        working-directory: release-assets/v0.26.0
         shell: bash
         run: sha256sum --check CHECKSUMS.sha256
 
       - name: Create public development release
         env:
           GH_TOKEN: ${{ github.token }}
-          ASSET_DIR: release-assets/v0.16.0
+          ASSET_DIR: release-assets/v0.26.0
         shell: bash
         run: |
           gh release create "$GITHUB_REF_NAME" \
             --repo "$GITHUB_REPOSITORY" \
-            --title "Tianxia Wuzhu v0.16.0 · WebGL2 compatibility fix" \
+            --title "天下无主 v0.26.0 R26 势力主与征伐系统" \
             --notes-file "$ASSET_DIR/RELEASE-NOTES.md" \
             --latest \
-            "$ASSET_DIR/TianxiaWuzhu-Windows-x64-v0.16.0.zip" \
-            "$ASSET_DIR/TianxiaWuzhu-Android-arm64-v0.16.0.apk" \
+            "$ASSET_DIR/TianxiaWuzhu-Windows-x64-v0.26.0.zip" \
+            "$ASSET_DIR/TianxiaWuzhu-Android-arm64-v0.26.0.apk" \
             "$ASSET_DIR/release-manifest.json" \
             "$ASSET_DIR/CHECKSUMS.sha256"

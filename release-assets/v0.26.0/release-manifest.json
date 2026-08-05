@@ -1,0 +1,107 @@
+{
+  "task_id": "TW-R26-043-SOVEREIGN-FORCE-INTELLIGENCE-AND-TARGET-CATALOG",
+  "product": "天下无主",
+  "version": "0.26.0",
+  "tag": "v0.26.0-r26",
+  "release_kind": "public playable development candidate",
+  "release_boundary": "scoped validated development release; not a full commercial PASS",
+  "prepared_at_utc": "2026-08-05T15:49:44.4433506Z",
+  "source": {
+    "fingerprint_schema": 13,
+    "fingerprint_sha256": "D2176C40EBE057FD0738367D4441D4146D7477132D77A83710C3632C45F86763",
+    "file_count": 303
+  },
+  "repository": "https://github.com/GITVIRGIN/tianxia-wuzhu",
+  "pages": "https://gitvirgin.github.io/tianxia-wuzhu/",
+  "release": "https://github.com/GITVIRGIN/tianxia-wuzhu/releases/tag/v0.26.0-r26",
+  "automated_tests": {
+    "verdict": "PASS",
+    "passed": 215,
+    "total": 215,
+    "report_sha256": "F47D09B5506D6FD8026D545803FE80F1A94E5DCBBCB21D09B658D09EFD1635B9"
+  },
+  "windows": {
+    "verdict": "PASS",
+    "delivery": "complete ZIP containing adjacent EXE, PCK, manifest and README",
+    "naked_exe_supported": false,
+    "exe_sha256": "835922D9CD788E37D70160ECD59B48AC4B4A49DF08282E7CBC48B04CB4756BB5",
+    "pck_sha256": "23965957D8AA629CD1FC92F5CDD9E7DB117479048BD147ED377327B57F3DFB41",
+    "build_manifest_sha256": "D3F1D06BF608AC088DE6DB5CCACFAEEF67BBF8F7C3B874D5393D46458E1DF2E5",
+    "asset": {
+      "name": "TianxiaWuzhu-Windows-x64-v0.26.0.zip",
+      "size": 92713206,
+      "sha256": "3120D985FF12FE6A0AEAFB0880F7B8526E2639F312ED49DB5FE406C4BAF38451"
+    },
+    "isolated_zip_self_test": {
+      "verdict": "PASS",
+      "report_sha256": "6FCC41B3D80FEA04C276DF9A669049B410FC2FA92EF030804A310F389D7BDCAB",
+      "files": [
+        "TianxiaWuzhu.exe",
+        "TianxiaWuzhu.pck",
+        "build-manifest.json",
+        "README.md"
+      ]
+    }
+  },
+  "web": {
+    "verdict": "PASS",
+    "webgl2_required": true,
+    "source_fingerprint_sha256": "D2176C40EBE057FD0738367D4441D4146D7477132D77A83710C3632C45F86763",
+    "entry_sha256": "B3DF263C31C8FB5155273AF93A339CD82962A4B9ABD4FBE4C82E423B5226802C",
+    "pck_sha256": "CEA22123F3E71DE48D3A4C3591C270F8B00A492FE2C11C362E83033D9FFFD40A",
+    "wasm_sha256": "35116F68540AC41ACF7D71EA457ADDED91B5E960A9CCA3E2ACC72918EAF01277",
+    "build_manifest_sha256": "59A0FF234B22CD25192B47743394AEBE1C7D3C7FF41AA10BFF43B92D66D3D7B0",
+    "compatibility_audit": {
+      "verdict": "PASS",
+      "passed": 17,
+      "total": 17,
+      "report_sha256": "9E6FAB473526FECE669A0B3BC9D78383C6EA177AD1AB732D7D5F517FD002413F"
+    },
+    "real_browser_player_path": {
+      "verdict": "PASS",
+      "report_sha256": "7AAEA7CCADB94A37BA64FD1D6AEB266E47F02EB8107A41059132D63867D4C20F",
+      "screenshot_sha256": "37E53F8DCCE2CD294B9FD743E208457B1ADFF21A88942F0F043E01864AA9C99E"
+    }
+  },
+  "android": {
+    "verdict": "PASS",
+    "package": "org.codexgame.tianxiawuzhu",
+    "version_code": 26,
+    "version_name": "0.26.0",
+    "orientation": "landscape",
+    "architecture": "arm64-v8a",
+    "signing_schemes": ["v2", "v3"],
+    "development_certificate_sha256": "14456FE2683B794313EBC1790900A5C9640249B1E9AA86349B3EC5E48094D1D9",
+    "build_manifest_sha256": "48E2054B62F2963BBFFE0824EA4235DD4DD03134C0F9447B55E9D9A81F27CDDE",
+    "physical_device_validation": "not run; package, architecture, landscape metadata and v2/v3 signature verified",
+    "asset": {
+      "name": "TianxiaWuzhu-Android-arm64-v0.26.0.apk",
+      "size": 82074728,
+      "sha256": "FD25FBCF56C000CB88946E4A95BAD9FE3DC328EF2E40987FA909141068006889"
+    }
+  },
+  "native_ui_harness": {
+    "verdict": "PASS",
+    "suite_report_sha256": "98FE18FAD0C81ADB2CDC50E1E2F67B3336B58C4CD615EFFEADC099B3BA03CCBB",
+    "positive_case_report_sha256": "584B720225AF1823BA302C650D1F4713F839EC16ECD3D452299468433BE90802",
+    "mouse_inputs": 110,
+    "keyboard_inputs": 0,
+    "required_mouse_targets": 27,
+    "clicked_mouse_targets": 33,
+    "negative_controls_passed": 5,
+    "negative_controls_total": 5,
+    "player_save_unchanged": true,
+    "runtime_diagnostics": []
+  },
+  "exe_self_test": {
+    "verdict": "PASS",
+    "passed": 6,
+    "total": 6,
+    "report_sha256": "6DC2394FCE23F45EF08A074C858D33A95465DA06B35C5C06D8AB1D102CFB2EEC"
+  },
+  "independent_review": {
+    "status": "PASS",
+    "report": "reviews/TW-R26-043-SOVEREIGN-FORCE-INTELLIGENCE-AND-TARGET-CATALOG/independent-release-review-v0.26.0-r26.md",
+    "boundary": "reviewer is independent from implementation and may issue only scoped PASS, BLOCKED or FAILED"
+  }
+}
