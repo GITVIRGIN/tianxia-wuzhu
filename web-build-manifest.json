@@ -1,80 +1,33 @@
-﻿{
-    "task_id":  "TW-R26-043-SOVEREIGN-FORCE-INTELLIGENCE-AND-TARGET-CATALOG",
-    "verdict":  "PASS",
-    "validation_scope":  "single-threaded Godot Web export with Chinese WebGL2 fallback; real positive and forced-negative browser player paths remain separate gates",
-    "built_at":  "2026-08-05T14:42:04.2998463Z",
-    "build_version":  "0.26.0",
-    "schema_version":  13,
-    "project_root":  "D:\\workspace\\codexgame\\tianxia_wuzhu",
-    "source_fingerprint":  "D2176C40EBE057FD0738367D4441D4146D7477132D77A83710C3632C45F86763",
-    "source_file_count":  303,
-    "engine":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\engine\\Godot_v4.7.1-stable_win64_console.exe",
-    "engine_sha256":  "35DAB11E04ECE16A2B93035E65204F4A944A3E00B020D43E54409193379D5EEF",
-    "template":  "D:\\workspace\\gpt\\.tooling\\godot-4.7.1\\template-extract\\templates\\web_nothreads_release.zip",
-    "template_sha256":  "B7B7D7DA29FC6CC2F4934FDD26CC571A40E7AF57F716EA3EB7E18DA720DAE28A",
-    "thread_support":  false,
-    "extensions_support":  false,
-    "entry":  "D:\\workspace\\codexgame\\tianxia_wuzhu\\dist\\web\\index.html",
-    "compatibility_audit":  {
-                                "verdict":  "PASS",
-                                "entry_sha256":  "B3DF263C31C8FB5155273AF93A339CD82962A4B9ABD4FBE4C82E423B5226802C",
-                                "check_count":  17
-                            },
-    "files":  [
-                  {
-                      "name":  ".gitattributes",
-                      "size":  240,
-                      "sha256":  "3E580C30140F43079718DA22ADA3A79A83CA6E5C4EA31CF6DD6D1AA81B657399"
-                  },
-                  {
-                      "name":  ".nojekyll",
-                      "size":  0,
-                      "sha256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
-                  },
-                  {
-                      "name":  "index.apple-touch-icon.png",
-                      "size":  64251,
-                      "sha256":  "9D91139906FFD6B7FB318488AE83B4A66825ECE590D56E11567CEF7B6098D989"
-                  },
-                  {
-                      "name":  "index.audio.position.worklet.js",
-                      "size":  2973,
-                      "sha256":  "BE33985BC7160D6BF9646F259CD86B259CD67B02CCB297EE5C44F8AC84327BC8"
-                  },
-                  {
-                      "name":  "index.audio.worklet.js",
-                      "size":  7298,
-                      "sha256":  "5B476A9C9CE642C0EE4256436D1BC31D9C38F868ACA0F9A8E2A57C18D2DEC2A3"
-                  },
-                  {
-                      "name":  "index.html",
-                      "size":  13230,
-                      "sha256":  "B3DF263C31C8FB5155273AF93A339CD82962A4B9ABD4FBE4C82E423B5226802C"
-                  },
-                  {
-                      "name":  "index.icon.png",
-                      "size":  267635,
-                      "sha256":  "C7101692E6684C1D7564D6EDC5FE9926E223A0362A801A314017867C5FABAFBE"
-                  },
-                  {
-                      "name":  "index.js",
-                      "size":  279815,
-                      "sha256":  "68586D6DAAFC93C6E697B3FB258976874AA7459B8931165EBB1DC3C9614CC42C"
-                  },
-                  {
-                      "name":  "index.pck",
-                      "size":  55128012,
-                      "sha256":  "CEA22123F3E71DE48D3A4C3591C270F8B00A492FE2C11C362E83033D9FFFD40A"
-                  },
-                  {
-                      "name":  "index.png",
-                      "size":  21443,
-                      "sha256":  "3CB4495C0B98DFBE4B663CBF2B6836473572339BEB66D902367893162A70BE0E"
-                  },
-                  {
-                      "name":  "index.wasm",
-                      "size":  39513091,
-                      "sha256":  "35116F68540AC41ACF7D71EA457ADDED91B5E960A9CCA3E2ACC72918EAF01277"
-                  }
-              ]
+{
+  "build_version": "0.26.15",
+  "revision": "browser-release-20261012",
+  "schema_version": 13,
+  "built_at": "2026-10-12T13:29:57.2796286Z",
+  "source_fingerprint": "34FEFCE616ADFF9AD6E29A3C9C5650CB6682614E5B660576FDA20449A757FDFD",
+  "thread_support": false,
+  "save_root": "user://saves",
+  "local_tests": 89,
+  "validation_scope": "Build and focused regression only. See the separate visible-browser player report.",
+  "files": [
+    {
+      "name": "index.html",
+      "bytes": 15497,
+      "sha256": "DD94D68FE11502C173BEA29F4EA281B33C12F79A50F7418DF3E029D005D8629A"
+    },
+    {
+      "name": "index.js",
+      "bytes": 279815,
+      "sha256": "68586D6DAAFC93C6E697B3FB258976874AA7459B8931165EBB1DC3C9614CC42C"
+    },
+    {
+      "name": "index.pck",
+      "bytes": 60429508,
+      "sha256": "4A7E6599218A5FDB84DADC6A3D092710C63983BA86EBECBFE73222F2764698FE"
+    },
+    {
+      "name": "index.wasm",
+      "bytes": 39513091,
+      "sha256": "35116F68540AC41ACF7D71EA457ADDED91B5E960A9CCA3E2ACC72918EAF01277"
+    }
+  ]
 }

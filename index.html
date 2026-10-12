@@ -7,14 +7,14 @@
 		<style>
 :root {
 	color-scheme: dark;
-	--ink: #0b0d0e;
-	--panel: rgba(20, 19, 16, 0.96);
+	--ink: #0b1417;
+	--panel: rgba(17, 30, 35, 0.97);
 	--paper: #d9ccb0;
 	--paper-muted: #a99b7e;
-	--gold: #c59a4b;
-	--gold-bright: #e2bd6b;
+	--gold: #a95344;
+	--gold-bright: #f0e7d3;
 	--red: #6f2823;
-	--line: rgba(197, 154, 75, 0.55);
+	--line: rgba(112, 139, 143, 0.55);
 }
 
 * {
@@ -311,9 +311,29 @@ noscript {
 <meta name="description" content="《天下无主》架空明末高自由度战略沙盒可玩切片"><meta name="theme-color" content="#10171d">
 	</head>
 	<body>
-		<canvas id="canvas" aria-label="天下无主游戏画面">
-			当前浏览器不支持 Canvas，无法启动网页版。
-		</canvas>
+		<canvas id="canvas" aria-label="天下无主游戏画面"></canvas>
+		<button id="screen-text-toggle" type="button" aria-controls="screen-text-panel" aria-expanded="false" style="position:fixed;left:5px;bottom:3px;z-index:4;background:#142328;color:#aabbb7;border:1px solid #34484b;border-radius:3px;font:11px/16px sans-serif;cursor:pointer">文字辅助</button>
+		<section id="screen-text-panel" hidden aria-label="当前界面文字" style="position:fixed;left:12px;bottom:28px;z-index:5;max-width:min(560px,90vw);max-height:70vh;overflow:auto;padding:18px;background:#142328;color:#eee4d0;border:1px solid #6d8588;border-radius:5px">
+			<p style="margin-top:0">当前界面的只读文字辅助；操作仍在游戏画面中完成。</p>
+			<pre id="screen-text-readable" style="white-space:pre-wrap;font:14px/1.7 sans-serif"></pre>
+		</section>
+		<script>
+window.tianxiaScreenText = function (screen) {
+    const canvas = document.getElementById('canvas');
+    const encoded = JSON.stringify(screen);
+    if (canvas.getAttribute('data-screen-ui') === encoded) return;
+    canvas.setAttribute('data-screen-ui', encoded);
+    const controls = Object.values(screen.controls).filter(c => c.text).map(c => (c.enabled ? '' : '不可用：') + c.text.replaceAll('\n', ' · '));
+    const text = [screen.title, screen.date, screen.resources, screen.body, screen.notice, '当前可见操作：', ...controls].filter(Boolean).join('\n');
+    canvas.setAttribute('aria-label', text);
+    document.getElementById('screen-text-readable').textContent = text;
+};
+document.getElementById('screen-text-toggle').addEventListener('click', function () {
+    const panel = document.getElementById('screen-text-panel');
+    panel.hidden = !panel.hidden;
+    this.setAttribute('aria-expanded', String(!panel.hidden));
+});
+		</script>
 
 		<noscript>《天下无主》网页版需要启用 JavaScript。你也可以前往 GitHub Release 下载 Windows 完整版或 Android 版。</noscript>
 
@@ -325,7 +345,7 @@ noscript {
 				<div id="loading-panel" data-testid="web-loading-panel">
 					<p class="lead">正在检查浏览器并装载大地图。</p>
 					<progress id="status-progress"></progress>
-					<p class="muted">首次进入需要下载约 90MB 游戏数据，请保持页面开启。</p>
+					<p class="muted">首次进入需装载约 95MB 游戏数据，请保持页面开启。存档保存在当前浏览器；游戏中点击“存档”保存进度。</p>
 				</div>
 
 				<div id="compat-panel" data-testid="web-compatibility-panel" hidden>
@@ -355,8 +375,8 @@ noscript {
 					<div class="actions">
 						<button id="retry-button" class="action primary" type="button" data-testid="retry-browser-check">重新检测</button>
 						<a id="external-browser-link" class="action" href="./" target="_blank" rel="noopener" data-testid="open-system-browser">在新标签打开</a>
-						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/latest/download/TianxiaWuzhu-Windows-x64-v0.26.0.zip" data-testid="download-windows-zip">下载 Windows 完整版（ZIP）</a>
-						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/latest/download/TianxiaWuzhu-Android-arm64-v0.26.0.apk" data-testid="download-android-apk">下载 Android 版（APK）</a>
+						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/download/v0.26.0-r26/TianxiaWuzhu-Windows-x64-v0.26.0.zip" data-testid="download-windows-zip">Windows 旧版 0.26.0（ZIP）</a>
+						<a class="action primary" href="https://github.com/GITVIRGIN/tianxia-wuzhu/releases/download/v0.26.0-r26/TianxiaWuzhu-Android-arm64-v0.26.0.apk" data-testid="download-android-apk">Android 旧版 0.26.0（APK）</a>
 					</div>
 
 					<p class="help">
@@ -368,7 +388,7 @@ noscript {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":55128012,"index.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":60429508,"index.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 

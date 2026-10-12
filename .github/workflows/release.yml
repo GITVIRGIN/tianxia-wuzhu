@@ -1,9 +1,9 @@
-name: Publish Tianxia Wuzhu Release
+name: Publish Tianxia Wuzhu Web Release
 
 on:
   push:
     tags:
-      - "v*"
+      - "v*-web"
 
 permissions:
   contents: write
@@ -14,27 +14,25 @@ jobs:
     steps:
       - name: Checkout release payload
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          lfs: true
 
-      - name: Verify release checksums
-        working-directory: release-assets/v0.26.0
+      - name: Verify runtime and package Web release
         shell: bash
+        run: python3 .github/scripts/package_web_release.py --tag "$GITHUB_REF_NAME"
+
+      - name: Verify public download checksums
+        working-directory: .release-output
         run: sha256sum --check CHECKSUMS.sha256
 
       - name: Create public development release
         env:
           GH_TOKEN: ${{ github.token }}
-          ASSET_DIR: release-assets/v0.26.0
         shell: bash
         run: |
+          VERSION="$(python3 -c 'import json; print(json.load(open("web-build-manifest.json", encoding="utf-8-sig"))["build_version"])')"
           gh release create "$GITHUB_REF_NAME" \
             --repo "$GITHUB_REPOSITORY" \
-            --title "天下无主 v0.26.0 R26 势力主与征伐系统" \
-            --notes-file "$ASSET_DIR/RELEASE-NOTES.md" \
+            --verify-tag \
+            --title "天下无主 v${VERSION} · 地图、粮运与天下归心" \
+            --notes-file ".release-output/RELEASE-NOTES.md" \
             --latest \
-            "$ASSET_DIR/TianxiaWuzhu-Windows-x64-v0.26.0.zip" \
-            "$ASSET_DIR/TianxiaWuzhu-Android-arm64-v0.26.0.apk" \
-            "$ASSET_DIR/release-manifest.json" \
-            "$ASSET_DIR/CHECKSUMS.sha256"
+            .release-output/*
